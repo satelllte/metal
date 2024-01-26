@@ -9,8 +9,6 @@
 #include <MetalKit/MetalKit.hpp>
 
 #include "AppDelegate.h"
-#include "MTKViewDelegate.h"
-#include "Renderer.h"
 
 int main( int argc, char* argv[] )
 {
