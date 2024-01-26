@@ -10,7 +10,10 @@ project(
 
 include(metal.cmake)
 
-add_executable(${PROJECT_NAME} ./src/main.cpp)
+file(GLOB SOURCES "./src/*.h" "./src/*.cpp")
+
+add_executable(${PROJECT_NAME} ${SOURCES})
+
 target_link_libraries(${PROJECT_NAME} METAL_CPP)
 
 if(XCODE)
