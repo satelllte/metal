@@ -1,5 +1,8 @@
 #pragma once
 
+#include <Metal/Metal.hpp>
+#include <MetalKit/MetalKit.hpp>
+
 #include "MTKViewDelegate.h"
 
 class AppDelegate : public NS::ApplicationDelegate
