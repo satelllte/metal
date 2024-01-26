@@ -2,10 +2,10 @@
 
 #include "MyMTKViewDelegate.h"
 
-class MyAppDelegate : public NS::ApplicationDelegate
+class AppDelegate : public NS::ApplicationDelegate
 {
     public:
-        ~MyAppDelegate();
+        ~AppDelegate();
 
         NS::Menu* createMenuBar();
 

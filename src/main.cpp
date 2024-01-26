@@ -8,7 +8,7 @@
 #include <AppKit/AppKit.hpp>
 #include <MetalKit/MetalKit.hpp>
 
-#include "MyAppDelegate.h"
+#include "AppDelegate.h"
 #include "MyMTKViewDelegate.h"
 #include "Renderer.h"
 
@@ -16,7 +16,7 @@ int main( int argc, char* argv[] )
 {
     NS::AutoreleasePool* pAutoreleasePool = NS::AutoreleasePool::alloc()->init();
 
-    MyAppDelegate del;
+    AppDelegate del;
 
     NS::Application* pSharedApplication = NS::Application::sharedApplication();
     pSharedApplication->setDelegate( &del );
