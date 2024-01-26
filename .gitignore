@@ -1,2 +1,5 @@
-# Xcode project location
+# Build files
 build/
+
+# OS-files
+.DS_Store
