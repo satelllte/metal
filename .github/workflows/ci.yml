@@ -18,11 +18,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         run: ./build_release.sh
-      - name: Make application executable
+      - name: Build DMG
         run: |
-          chmod +x ./build/Release/Illusion.app/Contents/MacOS/Illusion
-      - name: Upload application artifact
+          npm install -g appdmg
+          appdmg appdmg.json build/Release/Illusion.dmg
+      - name: Upload DMG artifact
         uses: actions/upload-artifact@v4
         with:
-          name: application
+          name: Illusion
           path: ./build/Release
