@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MyMTKViewDelegate.h"
+#include "MTKViewDelegate.h"
 
 class AppDelegate : public NS::ApplicationDelegate
 {
@@ -17,5 +17,5 @@ class AppDelegate : public NS::ApplicationDelegate
         NS::Window* _pWindow;
         MTK::View* _pMtkView;
         MTL::Device* _pDevice;
-        MyMTKViewDelegate* _pViewDelegate = nullptr;
+        MTKViewDelegate* _pViewDelegate = nullptr;
 };

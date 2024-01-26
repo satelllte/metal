@@ -3,7 +3,7 @@
 #include <MetalKit/MetalKit.hpp>
 
 #include "AppDelegate.h"
-#include "MyMTKViewDelegate.h"
+#include "MTKViewDelegate.h"
 
 AppDelegate::~AppDelegate()
 {
@@ -79,7 +79,7 @@ void AppDelegate::applicationDidFinishLaunching( NS::Notification* pNotification
     _pMtkView->setColorPixelFormat( MTL::PixelFormat::PixelFormatBGRA8Unorm_sRGB );
     _pMtkView->setClearColor( MTL::ClearColor::Make( 0.0, 0.4, 0.5, 1.0 ) );
 
-    _pViewDelegate = new MyMTKViewDelegate( _pDevice );
+    _pViewDelegate = new MTKViewDelegate( _pDevice );
     _pMtkView->setDelegate( _pViewDelegate );
 
     _pWindow->setContentView( _pMtkView );

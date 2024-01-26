@@ -9,7 +9,7 @@
 #include <MetalKit/MetalKit.hpp>
 
 #include "AppDelegate.h"
-#include "MyMTKViewDelegate.h"
+#include "MTKViewDelegate.h"
 #include "Renderer.h"
 
 int main( int argc, char* argv[] )
