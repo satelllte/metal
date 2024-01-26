@@ -17,7 +17,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build
-        run: ./build_release.sh
+        run: |
+          ./build_release.sh
+          chmod +x ./build/Release/Illusion.app/Contents/MacOS/Illusion
       - name: Upload application artifact
         uses: actions/upload-artifact@v4
         with:
