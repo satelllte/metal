@@ -16,10 +16,10 @@ int main( int argc, char* argv[] )
 {
     NS::AutoreleasePool* pAutoreleasePool = NS::AutoreleasePool::alloc()->init();
 
-    AppDelegate del;
+    AppDelegate appDelegate;
 
     NS::Application* pSharedApplication = NS::Application::sharedApplication();
-    pSharedApplication->setDelegate( &del );
+    pSharedApplication->setDelegate( &appDelegate );
     pSharedApplication->run();
 
     pAutoreleasePool->release();
