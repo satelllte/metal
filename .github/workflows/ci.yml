@@ -21,9 +21,9 @@ jobs:
       - name: Build DMG
         run: |
           npm install -g appdmg
-          appdmg appdmg.json build/Release/Illusion.dmg
+          appdmg appdmg.json build/Release/Illusion/Illusion.dmg
       - name: Upload DMG artifact
         uses: actions/upload-artifact@v4
         with:
           name: Illusion
-          path: ./build/Release
+          path: ./build/Release/Illusion
