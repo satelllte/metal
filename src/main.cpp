@@ -4,22 +4,19 @@
 #define MTL_PRIVATE_IMPLEMENTATION
 #define MTK_PRIVATE_IMPLEMENTATION
 #define CA_PRIVATE_IMPLEMENTATION
-#include <Metal/Metal.hpp>
-#include <AppKit/AppKit.hpp>
-#include <MetalKit/MetalKit.hpp>
 
-#include "MyAppDelegate.h"
-#include "MyMTKViewDelegate.h"
-#include "Renderer.h"
+#include <AppKit/AppKit.hpp>
+
+#include "AppDelegate.h"
 
 int main( int argc, char* argv[] )
 {
     NS::AutoreleasePool* pAutoreleasePool = NS::AutoreleasePool::alloc()->init();
 
-    MyAppDelegate del;
+    AppDelegate appDelegate;
 
     NS::Application* pSharedApplication = NS::Application::sharedApplication();
-    pSharedApplication->setDelegate( &del );
+    pSharedApplication->setDelegate( &appDelegate );
     pSharedApplication->run();
 
     pAutoreleasePool->release();

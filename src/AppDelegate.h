@@ -1,11 +1,14 @@
 #pragma once
 
-#include "MyMTKViewDelegate.h"
+#include <Metal/Metal.hpp>
+#include <MetalKit/MetalKit.hpp>
 
-class MyAppDelegate : public NS::ApplicationDelegate
+#include "MTKViewDelegate.h"
+
+class AppDelegate : public NS::ApplicationDelegate
 {
     public:
-        ~MyAppDelegate();
+        ~AppDelegate();
 
         NS::Menu* createMenuBar();
 
@@ -17,5 +20,5 @@ class MyAppDelegate : public NS::ApplicationDelegate
         NS::Window* _pWindow;
         MTK::View* _pMtkView;
         MTL::Device* _pDevice;
-        MyMTKViewDelegate* _pViewDelegate = nullptr;
+        MTKViewDelegate* _pViewDelegate = nullptr;
 };
