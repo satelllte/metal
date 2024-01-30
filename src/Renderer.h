@@ -6,7 +6,7 @@ class Renderer
         Renderer( MTL::Device* pDevice );
         ~Renderer();
         void draw( MTK::View* pView );
-    
+
     private:
         void _buildShaders();
         void _buildBuffers();
