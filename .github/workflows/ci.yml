@@ -10,7 +10,6 @@ on:
 
 jobs:
   ci:
-    name: "CI"
     runs-on: macos-latest
     timeout-minutes: 10
     steps:
