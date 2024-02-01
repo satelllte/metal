@@ -23,14 +23,7 @@ open ./build/Illusion.xcodeproj
 
 ## Release build
 
-
-Make sure `build` folder is empty. You can remove it with:
-
-```sh
-rm -rf build
-```
-
-Then, build the release build of the application:
+To build the release build of the application, run:
 
 ```sh
 ./build_release.sh
