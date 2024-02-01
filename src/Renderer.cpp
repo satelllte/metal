@@ -26,37 +26,10 @@ void Renderer::_buildShaders()
 {
     using NS::StringEncoding::UTF8StringEncoding;
 
-    const char* shaderSrc = R"(
-        #include <metal_stdlib>
-        using namespace metal;
-
-        struct v2f
-        {
-            float4 position [[position]];
-            half3 color;
-        };
-
-        v2f vertex vertexMain( uint vertexId [[vertex_id]],
-                               device const float3* positions [[buffer(0)]],
-                               device const float3* colors [[buffer(1)]] )
-        {
-            v2f o;
-            o.position = float4( positions[ vertexId ], 1.0 );
-            o.color = half3 ( colors[ vertexId ] );
-            return o;
-        }
-
-        half4 fragment fragmentMain( v2f in [[stage_in]] )
-        {
-            return half4( in.color, 1.0 );
-        }
-    )";
-
-    NS::Error* pError = nullptr;
-    MTL::Library* pLibrary = _pDevice->newLibrary( NS::String::string(shaderSrc, UTF8StringEncoding), nullptr, &pError );
+    MTL::Library* pLibrary = _pDevice->newDefaultLibrary();
     if ( !pLibrary )
     {
-        __builtin_printf( "%s", pError->localizedDescription()->utf8String() );
+        __builtin_printf( "No *.metal shaders found" );
         assert( false );
     }
 
@@ -68,6 +41,7 @@ void Renderer::_buildShaders()
     pDesc->setFragmentFunction( pFragFn );
     pDesc->colorAttachments()->object(0)->setPixelFormat( MTL::PixelFormat::PixelFormatBGRA8Unorm_sRGB );
 
+    NS::Error* pError = nullptr;
     _pPSO = _pDevice->newRenderPipelineState( pDesc, &pError );
     if ( !_pPSO )
     {
