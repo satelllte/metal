@@ -8,17 +8,15 @@ project(
 	LANGUAGES CXX C
 )
 
+file(GLOB_RECURSE SOURCES_CPP "./src/*.h" "./src/*.cpp")
+file(GLOB_RECURSE SOURCES_SHADERS "./src/*.metal")
+add_executable(${PROJECT_NAME} ${SOURCES_CPP} ${SOURCES_SHADERS})
+set_source_files_properties(${SOURCES_SHADERS} PROPERTIES LANGUAGE METAL)
+
 include(metal.cmake)
-
-file(GLOB SOURCES "./src/*.h" "./src/*.cpp")
-
-add_executable(${PROJECT_NAME} ${SOURCES})
-
 target_link_libraries(${PROJECT_NAME} METAL_CPP)
 
-if(XCODE)
-	set_target_properties(${PROJECT_NAME} PROPERTIES
-		XCODE_GENERATE_SCHEME ON
-		XCODE_SCHEME_ENABLE_GPU_FRAME_CAPTURE_MODE "Metal"
-	)
-endif()
+set_target_properties(${PROJECT_NAME} PROPERTIES
+	XCODE_GENERATE_SCHEME ON
+	XCODE_SCHEME_ENABLE_GPU_FRAME_CAPTURE_MODE "Metal"
+)
