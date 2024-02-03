@@ -15,9 +15,13 @@ concurrency:
 
 jobs:
   ci:
-    runs-on: macos-latest
+    runs-on: macos-14
     timeout-minutes: 10
     steps:
+      - name: MacOS version
+        run: sw_vers
+      - name: CPU information
+        run: sysctl -n machdep.cpu.brand_string
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build
