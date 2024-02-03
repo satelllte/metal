@@ -18,6 +18,8 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 10
     steps:
+      - name: CPU information
+        run: sysctl -n machdep.cpu.brand_string
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build
